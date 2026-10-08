@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Payment - GymForge</title>
+
+    <link rel="stylesheet"
+          href="dashboard.css">
+
+</head>
+
+
+<body>
+
+<div class="dashboard">
+
+
+    <!-- ==========================================
+         SIDEBAR
+         ========================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                G
+            </div>
+
+            <div class="logo-text">
+
+                <h2>GYMFORGE</h2>
+
+                <p>MANAGEMENT SYSTEM</p>
+
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <p class="menu-title">
+                MAIN MENU
+            </p>
+
+
+            <a href="dashboard.html"
+               class="nav-item">
+
+                <span class="nav-icon">
+                    ⌂
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a href="profile.html"
+               class="nav-item">
+
+                <span class="nav-icon">
+                    ◉
+                </span>
+
+                <span>
+                    Member Profile
+                </span>
+
+            </a>
+
+
+            <a href="membership.html"
+               class="nav-item">
+
+                <span class="nav-icon">
+                    ▣
+                </span>
+
+                <span>
+                    Membership Plans
+                </span>
+
+            </a>
+
+
+            <a href="trainers.html"
+               class="nav-item">
+
+                <span class="nav-icon">
+                    ♙
+                </span>
+
+                <span>
+                    Trainers
+                </span>
+
+            </a>
+
+
+            <a href="workout.html"
+               class="nav-item">
+
+                <span class="nav-icon">
+                    ▤
+                </span>
+
+                <span>
+                    Workout Plans
+                </span>
+
+            </a>
+
+
+            <a href="attendance.html"
+               class="nav-item">
+
+                <span class="nav-icon">
+                    ✓
+                </span>
+
+                <span>
+                    Attendance
+                </span>
+
+            </a>
+
+
+            <a href="payment.html"
+               class="nav-item active">
+
+                <span class="nav-icon">
+                    ₹
+                </span>
+
+                <span>
+                    Payment
+                </span>
+
+            </a>
+
+
+            <a href="bmi.html"
+               class="nav-item">
+
+                <span class="nav-icon">
+                    ♧
+                </span>
+
+                <span>
+                    BMI & Diet Planner
+                </span>
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+         ========================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="page-heading">
+
+                <p>
+                    MEMBER PORTAL
+                </p>
+
+                <h1>
+                    Payment
+                </h1>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ==========================================
+             PAYMENT CARD
+             ========================================== -->
+
+        <section class="dashboard-card">
+
+
+            <div class="card-heading">
+
+                <p>
+                    PAYMENT MANAGEMENT
+                </p>
+
+                <h2>
+                    Payment Information
+                </h2>
+
+            </div>
+
+
+
+            <!-- ==========================================
+                 SELECTED MEMBERSHIP
+                 ========================================== -->
+
+            <div class="profile-information">
+
+
+                <div class="profile-row">
+
+                    <span>
+                        SELECTED PLAN
+                    </span>
+
+                    <strong id="selectedPlan">
+                        No Plan Selected
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <span>
+                        MEMBERSHIP FEE
+                    </span>
+
+                    <strong id="membershipFee">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <span>
+                        DURATION
+                    </span>
+
+                    <strong id="membershipDuration">
+                        Not Available
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <span>
+                        PAYMENT STATUS
+                    </span>
+
+                    <strong id="paymentStatus">
+                        Pending
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <span>
+                        LAST PAYMENT
+                    </span>
+
+                    <strong id="lastPayment">
+                        Not Available
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <span>
+                        NEXT PAYMENT DATE
+                    </span>
+
+                    <strong id="nextPaymentDate">
+                        Not Available
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==========================================
+                 PAYMENT FORM
+                 ========================================== -->
+
+            <div class="payment-form">
+
+
+                <h3>
+                    Complete Your Payment
+                </h3>
+
+
+
+                <!-- PAYMENT METHOD -->
+
+                <div class="payment-field">
+
+                    <label for="paymentMethod">
+                        Payment Method
+                    </label>
+
+
+                    <select id="paymentMethod">
+
+                        <option value="">
+                            Select Payment Method
+                        </option>
+
+                        <option value="UPI">
+                            UPI
+                        </option>
+
+                        <option value="Card">
+                            Credit / Debit Card
+                        </option>
+
+                        <option value="Cash">
+                            Cash
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- ==========================================
+                     UPI DETAILS
+                     ========================================== -->
+
+                <div
+                    class="payment-field"
+                    id="upiField"
+                    style="display: none;"
+                >
+
+                    <label for="upiId">
+                        UPI ID
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="upiId"
+                        placeholder="example@upi"
+                    >
+
+                </div>
+
+
+
+                <!-- ==========================================
+                     CARD DETAILS
+                     ========================================== -->
+
+                <div
+                    id="cardFields"
+                    style="display: none;"
+                >
+
+
+                    <div class="payment-field">
+
+                        <label for="cardNumber">
+                            Card Number
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="cardNumber"
+                            placeholder="1234 5678 9012 3456"
+                            maxlength="19"
+                            autocomplete="cc-number"
+                        >
+
+                    </div>
+
+
+
+                    <div class="payment-field">
+
+                        <label for="cardName">
+                            Card Holder Name
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="cardName"
+                            placeholder="Name on card"
+                            autocomplete="cc-name"
+                        >
+
+                    </div>
+
+
+
+                    <div class="payment-card-row">
+
+
+                        <div class="payment-field">
+
+                            <label for="expiryDate">
+                                Expiry Date
+                            </label>
+
+
+                            <input
+                                type="text"
+                                id="expiryDate"
+                                placeholder="MM/YY"
+                                maxlength="5"
+                                autocomplete="cc-exp"
+                            >
+
+                        </div>
+
+
+
+                        <div class="payment-field">
+
+                            <label for="cvv">
+                                CVV
+                            </label>
+
+
+                            <input
+                                type="password"
+                                id="cvv"
+                                placeholder="CVV"
+                                maxlength="3"
+                                autocomplete="cc-csc"
+                            >
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==========================================
+                     TRANSACTION ID
+                     ========================================== -->
+
+                <div class="payment-field">
+
+                    <label for="transactionId">
+                        Transaction / Reference ID
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="transactionId"
+                        placeholder="Enter transaction ID"
+                    >
+
+                </div>
+
+
+
+                <!-- ==========================================
+                     PAY BUTTON
+                     ========================================== -->
+
+                <button
+                    type="button"
+                    class="diet-button"
+                    id="payNowButton"
+                >
+                    Pay Now →
+                </button>
+
+
+                <p id="paymentMessage"></p>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- ==========================================
+     JAVASCRIPT
+     ========================================== -->
+
+<script src="payment.js"></script>
+
+
+</body>
+
+</html>

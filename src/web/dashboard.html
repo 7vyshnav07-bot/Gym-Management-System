@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gym Management System - Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- ==============================
+         DASHBOARD CONTAINER
+    =============================== -->
+
+    <div class="dashboard">
+
+
+        <!-- ==============================
+             SIDEBAR
+        =============================== -->
+
+        <aside class="sidebar">
+
+            <!-- Logo -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    G
+                </div>
+
+                <div class="logo-text">
+
+                    <h2>GYMFORGE</h2>
+
+                    <p>MANAGEMENT SYSTEM</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Navigation -->
+
+            <nav class="navigation">
+
+                <p class="menu-title">
+                    MAIN MENU
+                </p>
+
+
+               <nav class="navigation">
+
+    <p class="menu-title">
+        MAIN MENU
+    </p>
+
+    <!-- Dashboard -->
+    <a href="dashboard.html" class="nav-item active">
+        <span class="nav-icon">⌂</span>
+        <span>Dashboard</span>
+    </a>
+
+    <!-- Member Profile -->
+    <a href="profile.html" class="nav-item">
+        <span class="nav-icon">◉</span>
+        <span>Member Profile</span>
+    </a>
+
+    <!-- Membership Plans -->
+    <a href="membership.html" class="nav-item">
+        <span class="nav-icon">▣</span>
+        <span>Membership Plans</span>
+    </a>
+
+    <!-- Trainers -->
+    <a href="trainers.html" class="nav-item">
+        <span class="nav-icon">♙</span>
+        <span>Trainers</span>
+    </a>
+
+    <!-- Workout Plans -->
+    <a href="workout.html" class="nav-item">
+        <span class="nav-icon">▤</span>
+        <span>Workout Plans</span>
+    </a>
+
+    <!-- Attendance -->
+    <a href="attendance.html" class="nav-item">
+        <span class="nav-icon">✓</span>
+        <span>Attendance</span>
+    </a>
+
+    <!-- Payment -->
+    <a href="payment.html" class="nav-item">
+        <span class="nav-icon">₹</span>
+        <span>Payment</span>
+    </a>
+
+    <!-- BMI & Diet Planner -->
+    <a href="bmi.html" class="nav-item diet-link">
+        <span class="nav-icon">♧</span>
+        <span>BMI & Diet Planner</span>
+    </a>
+
+</nav>
+
+            </nav>
+
+
+            <!-- ==============================
+                 LOGOUT
+            =============================== -->
+
+            <div class="sidebar-bottom">
+
+                <button
+                    type="button"
+                    id="logoutButton"
+                    class="logout-button"
+                >
+
+                    <span class="nav-icon">↪</span>
+
+                    <span>Logout</span>
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ==============================
+             MAIN CONTENT
+        =============================== -->
+
+        <main class="main-content">
+
+
+            <!-- ==============================
+                 TOP BAR
+            =============================== -->
+
+            <header class="topbar">
+
+                <div class="page-heading">
+
+                    <p>
+                        MEMBER PORTAL
+                    </p>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                </div>
+
+
+                <!-- User information -->
+
+                <div class="user-section">
+
+                    <div class="user-details">
+
+                        <strong id="userName">
+                            Member
+                        </strong>
+
+                        <span>
+                            Active Member
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="user-avatar"
+                        id="userInitial"
+                    >
+                        M
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ==============================
+                 WELCOME SECTION
+            =============================== -->
+
+            <section class="welcome-card">
+
+                <div class="welcome-content">
+
+                    <p class="welcome-label">
+                        WELCOME BACK
+                    </p>
+
+                    <h2>
+
+                        Hello,
+
+                        <span id="welcomeName">
+                            Member
+                        </span>
+
+                    </h2>
+
+                    <p class="welcome-text">
+
+                        Stay consistent, stay strong.
+                        Your fitness journey starts here.
+
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-icon">
+                    💪
+                </div>
+
+            </section>
+
+
+            <!-- ==============================
+                 STATISTICS
+            =============================== -->
+
+            <section class="stats-container">
+
+
+                <!-- Membership -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ◷
+                    </div>
+
+                    <div class="stat-content">
+
+                        <p>
+                            MEMBERSHIP
+                        </p>
+
+                        <h3>
+                            Active
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Attendance -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✓
+                    </div>
+
+                    <div class="stat-content">
+
+                        <p>
+                            ATTENDANCE
+                        </p>
+
+                        <h3>
+                            0 Days
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Workout -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ▤
+                    </div>
+
+                    <div class="stat-content">
+
+                        <p>
+                            WORKOUT PLANS
+                        </p>
+
+                        <h3>
+                            0 Plans
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Payment -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ₹
+                    </div>
+
+                    <div class="stat-content">
+
+                        <p>
+                            PAYMENT
+                        </p>
+
+                        <h3>
+                            Pending
+                        </h3>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==============================
+                 LOWER DASHBOARD
+            =============================== -->
+
+            <section class="dashboard-grid">
+
+
+                <!-- ==============================
+                     QUICK ACCESS
+                =============================== -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-heading">
+
+                        <p>
+                            QUICK ACCESS
+                        </p>
+
+                        <h2>
+                            Manage your fitness
+                        </h2>
+
+                    </div>
+
+
+                    <div class="quick-actions">
+
+
+                        <!-- Member Profile -->
+
+                        <button
+                            type="button"
+                            class="action-card"
+                        >
+
+                            <span class="action-icon">
+                                ◉
+                            </span>
+
+                            <span class="action-text">
+
+                                <strong>
+                                    Member Profile
+                                </strong>
+
+                                <small>
+                                    View your information
+                                </small>
+
+                            </span>
+
+                            <span class="arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+                        <!-- Membership Plans -->
+
+                        <button
+                            type="button"
+                            class="action-card"
+                        >
+
+                            <span class="action-icon">
+                                ▣
+                            </span>
+
+                            <span class="action-text">
+
+                                <strong>
+                                    Membership Plans
+                                </strong>
+
+                                <small>
+                                    Explore available plans
+                                </small>
+
+                            </span>
+
+                            <span class="arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+                        <!-- ==============================
+                             WORKOUT PLANNER BUTTON
+                        =============================== -->
+
+                        <button
+                            type="button"
+                            class="action-card"
+                            onclick="window.location.href='workout.html'"
+                        >
+
+                            <span class="action-icon">
+                                ▤
+                            </span>
+
+                            <span class="action-text">
+
+                                <strong>
+                                    Workout Plans
+                                </strong>
+
+                                <small>
+                                    Create and view workouts
+                                </small>
+
+                            </span>
+
+                            <span class="arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+                        <!-- Attendance -->
+
+                        <button
+                            type="button"
+                            class="action-card"
+                        >
+
+                            <span class="action-icon">
+                                ✓
+                            </span>
+
+                            <span class="action-text">
+
+                                <strong>
+                                    Attendance
+                                </strong>
+
+                                <small>
+                                    Track your attendance
+                                </small>
+
+                            </span>
+
+                            <span class="arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==============================
+                     MEMBER INFORMATION
+                =============================== -->
+
+                <div class="dashboard-card profile-card">
+
+                    <div class="card-heading">
+
+                        <p>
+                            ACCOUNT
+                        </p>
+
+                        <h2>
+                            Member Profile
+                        </h2>
+
+                    </div>
+
+
+                    <div class="profile-information">
+
+
+                        <div class="profile-row">
+
+                            <span>
+                                FULL NAME
+                            </span>
+
+                            <strong id="profileFullName">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-row">
+
+                            <span>
+                                USERNAME
+                            </span>
+
+                            <strong id="profileUsername">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-row">
+
+                            <span>
+                                EMAIL
+                            </span>
+
+                            <strong id="profileEmail">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-row">
+
+                            <span>
+                                PHONE
+                            </span>
+
+                            <strong id="profilePhone">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==============================
+                 BMI FEATURE PROMOTION
+            =============================== -->
+
+            <section class="diet-feature">
+
+                <div class="diet-content">
+
+                    <p class="diet-label">
+                        NEW FEATURE
+                    </p>
+
+                    <h2>
+                        BMI & Balanced Diet Planner
+                    </h2>
+
+                    <p>
+
+                        Enter your height and weight,
+                        calculate your BMI, and receive
+                        a general balanced diet recommendation.
+
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="diet-button"
+                    id="dietButton"
+                >
+
+                    Open Diet Planner
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </section>
+
+
+            <!-- ==============================
+                 FOOTER
+            =============================== -->
+
+            <footer>
+
+                <span>
+                    GYMFORGE • GYM MANAGEMENT SYSTEM
+                </span>
+
+                <span>
+                    MEMBER PORTAL
+                </span>
+
+            </footer>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    =============================== -->
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>

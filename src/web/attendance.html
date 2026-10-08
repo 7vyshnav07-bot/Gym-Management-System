@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance - GymForge</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+    <style>
+
+        .attendance-message {
+            margin-top: 15px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .attendance-success {
+            color: #8fd3a9;
+        }
+
+        .attendance-error {
+            color: #e58b8b;
+        }
+
+        .attendance-history {
+            margin-top: 25px;
+        }
+
+        .attendance-history h3 {
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .attendance-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .attendance-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .attendance-table th,
+        .attendance-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+        }
+
+        .attendance-table th {
+            color: var(--secondary-text);
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .attendance-table td {
+            color: var(--text);
+        }
+
+        .present-status {
+            color: #8fd3a9;
+            font-weight: 700;
+        }
+
+        .empty-attendance {
+            padding: 30px;
+            text-align: center;
+            color: var(--muted-text);
+            font-size: 13px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                G
+            </div>
+
+            <div class="logo-text">
+                <h2>GYMFORGE</h2>
+                <p>MANAGEMENT SYSTEM</p>
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <p class="menu-title">
+                MAIN MENU
+            </p>
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">◉</span>
+                <span>Member Profile</span>
+            </a>
+
+            <a href="membership.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>Membership Plans</span>
+            </a>
+
+            <a href="trainers.html" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span>Trainers</span>
+            </a>
+
+            <a href="workout.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Workout Plans</span>
+            </a>
+
+            <a href="attendance.html" class="nav-item active">
+                <span class="nav-icon">✓</span>
+                <span>Attendance</span>
+            </a>
+
+            <a href="payment.html" class="nav-item">
+                <span class="nav-icon">₹</span>
+                <span>Payment</span>
+            </a>
+
+            <a href="bmi.html" class="nav-item">
+                <span class="nav-icon">♧</span>
+                <span>BMI & Diet Planner</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="page-heading">
+                <p>MEMBER PORTAL</p>
+                <h1>Attendance</h1>
+            </div>
+
+        </header>
+
+
+        <section class="dashboard-card">
+
+            <div class="card-heading">
+
+                <p>FITNESS TRACKING</p>
+
+                <h2>Attendance Records</h2>
+
+            </div>
+
+
+            <!-- ATTENDANCE SUMMARY -->
+
+            <div class="profile-information">
+
+                <div class="profile-row">
+
+                    <span>TOTAL DAYS PRESENT</span>
+
+                    <strong id="totalDays">
+                        0 Days
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <span>THIS MONTH</span>
+
+                    <strong id="thisMonth">
+                        0 Days
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <span>LAST ATTENDANCE</span>
+
+                    <strong id="lastAttendance">
+                        Not Available
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <span>ATTENDANCE STATUS</span>
+
+                    <strong id="attendanceStatus">
+                        Not Marked
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+
+            <!-- MARK ATTENDANCE -->
+
+            <button
+                type="button"
+                class="diet-button"
+                id="markAttendanceButton"
+                onclick="markAttendance()"
+            >
+                Mark Today's Attendance →
+            </button>
+
+
+            <p
+                id="attendanceMessage"
+                class="attendance-message"
+            ></p>
+
+
+            <!-- ATTENDANCE HISTORY -->
+
+            <div class="attendance-history">
+
+                <h3>
+                    Attendance History
+                </h3>
+
+
+                <div class="attendance-table-wrapper">
+
+                    <table class="attendance-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    DATE
+                                </th>
+
+                                <th>
+                                    STATUS
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="attendanceTableBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="2"
+                                    class="empty-attendance"
+                                >
+                                    Loading attendance...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+
+const SERVER_URL = "/GymForge";
+
+
+/* =========================================
+   LOAD ATTENDANCE
+========================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        loadAttendance();
+
+    }
+);
+
+
+/* =========================================
+   GET ATTENDANCE HISTORY
+========================================= */
+
+async function loadAttendance() {
+
+    const tableBody =
+        document.getElementById(
+            "attendanceTableBody"
+        );
+
+    try {
+
+        const response =
+            await fetch(
+                SERVER_URL + "/attendance",
+                {
+                    method: "GET",
+                    credentials: "include"
+                }
+            );
+
+
+        if (response.status === 401) {
+
+            tableBody.innerHTML = `
+                <tr>
+                    <td
+                        colspan="2"
+                        class="empty-attendance"
+                    >
+                        Please login to view attendance.
+                    </td>
+                </tr>
+            `;
+
+            return;
+        }
+
+
+        const result =
+            await response.json();
+
+
+        console.log(
+            "Attendance response:",
+            result
+        );
+
+
+        if (!result.success) {
+
+            tableBody.innerHTML = `
+                <tr>
+                    <td
+                        colspan="2"
+                        class="empty-attendance"
+                    >
+                        Unable to load attendance.
+                    </td>
+                </tr>
+            `;
+
+            return;
+        }
+
+
+        displayAttendance(
+            result.attendance
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Attendance loading error:",
+            error
+        );
+
+
+        tableBody.innerHTML = `
+            <tr>
+                <td
+                    colspan="2"
+                    class="empty-attendance"
+                >
+                    Unable to connect to the server.
+                </td>
+            </tr>
+        `;
+
+    }
+
+}
+
+
+/* =========================================
+   DISPLAY ATTENDANCE
+========================================= */
+
+function displayAttendance(attendance) {
+
+    const tableBody =
+        document.getElementById(
+            "attendanceTableBody"
+        );
+
+
+    const totalDays =
+        document.getElementById(
+            "totalDays"
+        );
+
+
+    const thisMonth =
+        document.getElementById(
+            "thisMonth"
+        );
+
+
+    const lastAttendance =
+        document.getElementById(
+            "lastAttendance"
+        );
+
+
+    const attendanceStatus =
+        document.getElementById(
+            "attendanceStatus"
+        );
+
+
+    if (
+        !attendance ||
+        attendance.length === 0
+    ) {
+
+        totalDays.textContent =
+            "0 Days";
+
+        thisMonth.textContent =
+            "0 Days";
+
+        lastAttendance.textContent =
+            "Not Available";
+
+        attendanceStatus.textContent =
+            "Not Marked";
+
+
+        tableBody.innerHTML = `
+            <tr>
+                <td
+                    colspan="2"
+                    class="empty-attendance"
+                >
+                    No attendance records yet.
+                </td>
+            </tr>
+        `;
+
+        return;
+    }
+
+
+    /* TOTAL DAYS */
+
+    const presentRecords =
+        attendance.filter(
+            record =>
+                record.status === "Present"
+        );
+
+
+    totalDays.textContent =
+        presentRecords.length +
+        (
+            presentRecords.length === 1
+                ? " Day"
+                : " Days"
+        );
+
+
+    /* THIS MONTH */
+
+    const today =
+        new Date();
+
+
+    const currentYear =
+        today.getFullYear();
+
+
+    const currentMonth =
+        today.getMonth() + 1;
+
+
+    const monthRecords =
+        presentRecords.filter(
+            record => {
+
+                const parts =
+                    record.date.split("-");
+
+                const year =
+                    parseInt(parts[0]);
+
+                const month =
+                    parseInt(parts[1]);
+
+                return (
+                    year === currentYear &&
+                    month === currentMonth
+                );
+
+            }
+        );
+
+
+    thisMonth.textContent =
+        monthRecords.length +
+        (
+            monthRecords.length === 1
+                ? " Day"
+                : " Days"
+        );
+
+
+    /* LAST ATTENDANCE */
+
+    if (presentRecords.length > 0) {
+
+        lastAttendance.textContent =
+            formatDate(
+                presentRecords[0].date
+            );
+
+    }
+
+
+    /* TODAY STATUS */
+
+    const todayString =
+        getTodayString();
+
+
+    const todayRecord =
+        attendance.find(
+            record =>
+                record.date === todayString
+        );
+
+
+    if (
+        todayRecord &&
+        todayRecord.status === "Present"
+    ) {
+
+        attendanceStatus.textContent =
+            "Present";
+
+        attendanceStatus.classList.add(
+            "present-status"
+        );
+
+    } else {
+
+        attendanceStatus.textContent =
+            "Not Marked";
+
+    }
+
+
+    /* HISTORY TABLE */
+
+    tableBody.innerHTML = "";
+
+
+    attendance.forEach(
+        function (record) {
+
+            const row =
+                document.createElement("tr");
+
+
+            row.innerHTML = `
+
+                <td>
+                    ${formatDate(record.date)}
+                </td>
+
+                <td class="${
+                    record.status === "Present"
+                        ? "present-status"
+                        : ""
+                }">
+                    ${escapeHtml(record.status)}
+                </td>
+
+            `;
+
+
+            tableBody.appendChild(row);
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   MARK TODAY'S ATTENDANCE
+========================================= */
+
+async function markAttendance() {
+
+    const message =
+        document.getElementById(
+            "attendanceMessage"
+        );
+
+
+    const button =
+        document.getElementById(
+            "markAttendanceButton"
+        );
+
+
+    message.textContent = "";
+
+    message.className =
+        "attendance-message";
+
+
+    button.disabled = true;
+
+    button.textContent =
+        "Marking Attendance...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                SERVER_URL + "/attendance",
+                {
+                    method: "POST",
+
+                    credentials: "include",
+
+                    headers: {
+                        "Content-Type":
+                            "application/x-www-form-urlencoded"
+                    },
+
+                    body:
+                        "status=Present"
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        console.log(
+            "Attendance mark response:",
+            result
+        );
+
+
+        if (
+            response.ok &&
+            result.success
+        ) {
+
+            message.textContent =
+                result.message;
+
+            message.classList.add(
+                "attendance-success"
+            );
+
+
+            await loadAttendance();
+
+
+            button.textContent =
+                "Attendance Marked ✓";
+
+
+        } else {
+
+            message.textContent =
+                result.message ||
+                "Unable to mark attendance.";
+
+            message.classList.add(
+                "attendance-error"
+            );
+
+
+            button.textContent =
+                "Mark Today's Attendance →";
+
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "Attendance error:",
+            error
+        );
+
+
+        message.textContent =
+            "Unable to connect to the server.";
+
+        message.classList.add(
+            "attendance-error"
+        );
+
+
+        button.textContent =
+            "Mark Today's Attendance →";
+
+    }
+
+
+    button.disabled = false;
+
+}
+
+
+/* =========================================
+   TODAY DATE
+========================================= */
+
+function getTodayString() {
+
+    const date =
+        new Date();
+
+
+    const year =
+        date.getFullYear();
+
+
+    const month =
+        String(
+            date.getMonth() + 1
+        ).padStart(2, "0");
+
+
+    const day =
+        String(
+            date.getDate()
+        ).padStart(2, "0");
+
+
+    return (
+        year +
+        "-" +
+        month +
+        "-" +
+        day
+    );
+
+}
+
+
+/* =========================================
+   FORMAT DATE
+========================================= */
+
+function formatDate(dateString) {
+
+    if (!dateString) {
+        return "N/A";
+    }
+
+
+    const parts =
+        dateString.split("-");
+
+
+    if (parts.length !== 3) {
+        return dateString;
+    }
+
+
+    const date =
+        new Date(
+            parseInt(parts[0]),
+            parseInt(parts[1]) - 1,
+            parseInt(parts[2])
+        );
+
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHtml(value) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+        return "";
+    }
+
+
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+</script>
+
+</body>
+
+</html>

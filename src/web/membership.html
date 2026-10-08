@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Membership Plans - GymForge</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="membership.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- =========================
+             SIDEBAR
+             ========================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    G
+                </div>
+
+                <div class="logo-text">
+                    <h2>GYMFORGE</h2>
+                    <p>MANAGEMENT SYSTEM</p>
+                </div>
+
+            </div>
+
+
+            <nav class="navigation">
+
+                <p class="menu-title">
+                    MAIN MENU
+                </p>
+
+
+                <a href="dashboard.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        ⌂
+                    </span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <a href="profile.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        ◉
+                    </span>
+
+                    <span>
+                        Member Profile
+                    </span>
+
+                </a>
+
+
+                <a href="membership.html" class="nav-item active">
+
+                    <span class="nav-icon">
+                        ▣
+                    </span>
+
+                    <span>
+                        Membership Plans
+                    </span>
+
+                </a>
+
+
+                <a href="trainers.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        ♙
+                    </span>
+
+                    <span>
+                        Trainers
+                    </span>
+
+                </a>
+
+
+                <a href="workout.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        ▤
+                    </span>
+
+                    <span>
+                        Workout Plans
+                    </span>
+
+                </a>
+
+
+                <a href="attendance.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        ✓
+                    </span>
+
+                    <span>
+                        Attendance
+                    </span>
+
+                </a>
+
+
+                <a href="payment.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        ₹
+                    </span>
+
+                    <span>
+                        Payment
+                    </span>
+
+                </a>
+
+
+                <a href="bmi.html" class="nav-item">
+
+                    <span class="nav-icon">
+                        ♧
+                    </span>
+
+                    <span>
+                        BMI & Diet Planner
+                    </span>
+
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- =========================
+             MAIN CONTENT
+             ========================= -->
+
+        <main class="main-content">
+
+
+            <!-- TOP BAR -->
+
+            <header class="topbar">
+
+                <div class="page-heading">
+
+                    <p>
+                        MEMBER PORTAL
+                    </p>
+
+                    <h1>
+                        Membership Plans
+                    </h1>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- =========================
+                 MEMBERSHIP PAGE
+                 ========================= -->
+
+            <div class="membership-page">
+
+
+                <!-- HERO -->
+
+                <section class="membership-hero">
+
+                    <div class="membership-hero-content">
+
+                        <small>
+                            GYMFORGE MEMBERSHIP
+                        </small>
+
+                        <h2>
+                            Choose the plan
+                            <br>
+                            <span>that fits your goals.</span>
+                        </h2>
+
+                        <p>
+                            Flexible membership plans designed to
+                            support your fitness journey and help you
+                            stay consistent.
+                        </p>
+
+                    </div>
+
+
+                    <div class="membership-hero-icon">
+
+                        <div class="membership-icon">
+                            ▣
+                        </div>
+
+                        <span>
+                            TRAIN.
+                            <br>
+                            IMPROVE.
+                            <br>
+                            REPEAT.
+                        </span>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- CURRENT MEMBERSHIP -->
+
+                <section class="current-membership">
+
+                    <div class="current-membership-icon">
+                        ✓
+                    </div>
+
+                    <div class="current-membership-content">
+
+                        <small>
+                            YOUR MEMBERSHIP
+                        </small>
+
+                        <h3 id="currentPlan">
+                            No Active Membership
+                        </h3>
+
+                        <p id="currentMembershipDetails">
+                            Choose a membership plan below
+                            to get started.
+                        </p>
+
+                    </div>
+
+                    <div class="membership-status" id="membershipStatus">
+                        INACTIVE
+                    </div>
+
+                </section>
+
+
+
+                <!-- PLAN HEADER -->
+
+                <div class="membership-section-heading">
+
+                    <div>
+
+                        <small>
+                            GYMFORGE FITNESS PLANS
+                        </small>
+
+                        <h2>
+                            Find Your Membership
+                        </h2>
+
+                        <p>
+                            Select a plan that matches your
+                            training needs.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MEMBERSHIP PLANS -->
+
+                <section
+                    id="membershipGrid"
+                    class="membership-grid"
+                >
+
+                    <!-- PLAN 1 -->
+
+                    <article class="membership-card">
+
+                        <div class="plan-top">
+
+                            <div class="plan-icon">
+                                ●
+                            </div>
+
+                            <span class="plan-label">
+                                STARTER
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Basic
+                        </h3>
+
+                        <p class="plan-description">
+                            A simple plan for members who want
+                            regular access to the gym.
+                        </p>
+
+
+                        <div class="plan-price">
+
+                            <span>
+                                ₹
+                            </span>
+
+                            <strong>
+                                999
+                            </strong>
+
+                            <small>
+                                / month
+                            </small>
+
+                        </div>
+
+
+                        <div class="plan-duration">
+                            1 Month Membership
+                        </div>
+
+
+                        <div class="plan-divider"></div>
+
+
+                        <ul class="plan-features">
+
+                            <li>
+                                <span>✓</span>
+                                Gym Access
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Basic Equipment
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Locker Access
+                            </li>
+
+                            <li class="disabled">
+                                <span>×</span>
+                                Personal Trainer
+                            </li>
+
+                        </ul>
+
+
+                        <button
+                            class="choose-plan-btn"
+                            onclick="selectPlan(1)"
+                        >
+                            Choose Plan
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- PLAN 2 -->
+
+                    <article class="membership-card featured">
+
+                        <div class="popular-badge">
+                            MOST POPULAR
+                        </div>
+
+
+                        <div class="plan-top">
+
+                            <div class="plan-icon">
+                                ★
+                            </div>
+
+                            <span class="plan-label">
+                                POPULAR
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Premium
+                        </h3>
+
+                        <p class="plan-description">
+                            A balanced membership with additional
+                            training support and benefits.
+                        </p>
+
+
+                        <div class="plan-price">
+
+                            <span>
+                                ₹
+                            </span>
+
+                            <strong>
+                                2499
+                            </strong>
+
+                            <small>
+                                / 3 months
+                            </small>
+
+                        </div>
+
+
+                        <div class="plan-duration">
+                            3 Month Membership
+                        </div>
+
+
+                        <div class="plan-divider"></div>
+
+
+                        <ul class="plan-features">
+
+                            <li>
+                                <span>✓</span>
+                                Full Gym Access
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Trainer Support
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Workout Plans
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Locker Access
+                            </li>
+
+                        </ul>
+
+
+                        <button
+                            class="choose-plan-btn"
+                            onclick="selectPlan(2)"
+                        >
+                            Choose Plan
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- PLAN 3 -->
+
+                    <article class="membership-card">
+
+                        <div class="plan-top">
+
+                            <div class="plan-icon">
+                                ◆
+                            </div>
+
+                            <span class="plan-label">
+                                ELITE
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Elite
+                        </h3>
+
+                        <p class="plan-description">
+                            A complete fitness experience with
+                            personalized support.
+                        </p>
+
+
+                        <div class="plan-price">
+
+                            <span>
+                                ₹
+                            </span>
+
+                            <strong>
+                                7999
+                            </strong>
+
+                            <small>
+                                / year
+                            </small>
+
+                        </div>
+
+
+                        <div class="plan-duration">
+                            12 Month Membership
+                        </div>
+
+
+                        <div class="plan-divider"></div>
+
+
+                        <ul class="plan-features">
+
+                            <li>
+                                <span>✓</span>
+                                Full Gym Access
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Personal Trainer
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Diet Planning
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Workout Plans
+                            </li>
+
+                        </ul>
+
+
+                        <button
+                            class="choose-plan-btn"
+                            onclick="selectPlan(3)"
+                        >
+                            Choose Plan
+                        </button>
+
+                    </article>
+
+                </section>
+
+
+
+                <!-- MESSAGE -->
+
+                <div
+                    id="membershipMessage"
+                    class="membership-message"
+                ></div>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="membership.js"></script>
+
+</body>
+
+</html>
