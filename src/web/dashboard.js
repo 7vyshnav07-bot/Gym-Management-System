@@ -453,35 +453,37 @@ function setupDashboardLinks() {
    LOGOUT
 ========================================== */
 
+
 function setupLogout() {
-
-    const logoutButton =
-        document.getElementById(
-            "logoutButton"
-        );
-
+    const logoutButton = document.getElementById("logoutButton");
 
     if (!logoutButton) {
         return;
     }
 
+    logoutButton.addEventListener("click", async function () {
+        logoutButton.disabled = true;
 
-    logoutButton.addEventListener(
-        "click",
-        function () {
+        try {
+            const response = await fetch("/GymForge/logout", {
+                method: "POST",
+                credentials: "include"
+            });
 
-            /*
-             * We will connect this to
-             * LogoutServlet when we create
-             * the logout backend.
-             */
+            const result = await response.json();
 
-            window.location.href =
-                "index.html";
-
+            if (response.ok && result.success) {
+                window.location.replace("/GymForge/index.html");
+            } else {
+                alert("Logout failed. Please try again.");
+                logoutButton.disabled = false;
+            }
+        } catch (error) {
+            console.error("Logout error:", error);
+            alert("Unable to log out. Please try again.");
+            logoutButton.disabled = false;
         }
-    );
-
+    });
 }
 
 

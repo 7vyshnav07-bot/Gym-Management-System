@@ -1,5 +1,5 @@
 package service;
-
+import security.PasswordUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,7 +41,10 @@ public class UserService implements UserOperations {
             statement.setString(5, user.getDateOfBirth());
             statement.setString(6, user.getCountry());
             statement.setString(7, user.getGender());
-            statement.setString(8, user.getPassword());
+           statement.setString(
+        8,
+        security.PasswordUtil.hashPassword(user.getPassword())
+);
 
             statement.executeUpdate();
 
@@ -59,43 +62,74 @@ public class UserService implements UserOperations {
         }
     }
 
-    @Override
-    public boolean authenticateUser(
-            String username,
-            String password) {
+   
 
-        String sql =
-                "SELECT * FROM users WHERE username = ? AND password = ?";
+@Override
+public boolean authenticateUser(
+        String username,
+        String password) {
 
-        try (
-            Connection connection =
-                    DatabaseConnection.getConnection();
+    String sql =
+            "SELECT id, password FROM users WHERE username = ?";
 
-            PreparedStatement statement =
-                    connection.prepareStatement(sql)
-        ) {
+    try (
+        Connection connection =
+                DatabaseConnection.getConnection();
 
-            statement.setString(1, username);
-            statement.setString(2, password);
+        PreparedStatement statement =
+                connection.prepareStatement(sql)
+    ) {
 
-            ResultSet resultSet =
-                    statement.executeQuery();
+        statement.setString(1, username);
 
-            if (resultSet.next()) {
+        try (ResultSet resultSet = statement.executeQuery()) {
 
-                return true;
+            if (!resultSet.next()) {
+                return false;
             }
 
-        } catch (Exception e) {
+            int userId = resultSet.getInt("id");
+            String storedPassword =
+                    resultSet.getString("password");
 
-            System.out.println(
-                    "Login error: "
-                    + e.getMessage()
-            );
+            // Already hashed password
+            if (storedPassword != null
+                    && storedPassword.startsWith("pbkdf2$")) {
+
+                return security.PasswordUtil.verifyPassword(
+                        password,
+                        storedPassword
+                );
+            }
+
+            // Legacy plaintext password: verify, then upgrade it
+            if (storedPassword != null
+                    && storedPassword.equals(password)) {
+
+                String hashedPassword =
+                        security.PasswordUtil.hashPassword(password);
+
+                String updateSql =
+                        "UPDATE users SET password = ? WHERE id = ?";
+
+                try (PreparedStatement updateStatement =
+                        connection.prepareStatement(updateSql)) {
+
+                    updateStatement.setString(1, hashedPassword);
+                    updateStatement.setInt(2, userId);
+
+                    return updateStatement.executeUpdate() == 1;
+                }
+            }
         }
 
-        return false;
+    } catch (Exception e) {
+        System.out.println("Login error: " + e.getMessage());
     }
+
+    return false;
+}
+
 
     @Override
     public boolean validate(User user) {

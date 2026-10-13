@@ -1,5 +1,5 @@
 package servlet;
-
+import security.PasswordUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -182,9 +182,9 @@ public class UpdateProfileServlet extends HttpServlet {
 
                 if (changePassword) {
 
-                    statement.setString(
-                            7,
-                            password);
+                   statement.setString(
+        7,
+        PasswordUtil.hashPassword(password.trim()));
 
                     statement.setString(
                             8,

@@ -5,7 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+import security.PasswordUtil;
 import db.DatabaseConnection;
 
 import java.io.BufferedReader;
@@ -106,7 +106,7 @@ public class RegisterServlet extends HttpServlet {
                 statement.setString(5, dateOfBirth);
                 statement.setString(6, country);
                 statement.setString(7, gender);
-                statement.setString(8, password);
+                statement.setString(8, PasswordUtil.hashPassword(password));
 
                 statement.executeUpdate();
             }
