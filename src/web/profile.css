@@ -1,0 +1,572 @@
+/* =========================================================
+   GYMFORGE MEMBER PROFILE
+   DARK + GREEN THEME
+   ========================================================= */
+
+
+/* =========================================================
+   PROFILE LAYOUT
+   ========================================================= */
+
+.profile-container {
+
+    display: grid;
+
+    grid-template-columns: 280px 1fr;
+
+    gap: 18px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   PROFILE SUMMARY CARD
+   ========================================================= */
+
+.profile-sidebar-card {
+
+    padding: 28px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 17px;
+
+    background: var(--card);
+
+    text-align: center;
+
+    transition: all 0.25s ease;
+}
+
+
+.profile-sidebar-card:hover {
+
+    border-color: rgba(155, 199, 167, 0.22);
+
+    background: var(--card-hover);
+}
+
+
+/* =========================================================
+   PROFILE AVATAR
+   ========================================================= */
+
+.profile-avatar {
+
+    width: 92px;
+
+    height: 92px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid rgba(155, 199, 167, 0.3);
+
+    border-radius: 50%;
+
+    background: var(--accent-light);
+
+    color: var(--accent);
+
+    font-size: 32px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   MEMBER NAME
+   ========================================================= */
+
+.profile-sidebar-card h2 {
+
+    margin-bottom: 6px;
+
+    color: var(--text);
+
+    font-size: 20px;
+
+    letter-spacing: -0.02em;
+}
+
+
+/* =========================================================
+   USERNAME
+   ========================================================= */
+
+.profile-sidebar-card p {
+
+    color: var(--muted-text);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   MEMBER BADGE
+   ========================================================= */
+
+.profile-tag {
+
+    display: inline-block;
+
+    margin-top: 18px;
+
+    padding: 7px 12px;
+
+    border: 1px solid rgba(155, 199, 167, 0.15);
+
+    border-radius: 20px;
+
+    background: var(--accent-light);
+
+    color: var(--accent);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   PROFILE FORM CARD
+   ========================================================= */
+
+.profile-form-card {
+
+    padding: 25px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 17px;
+
+    background: var(--card);
+
+    transition: all 0.25s ease;
+}
+
+
+/* =========================================================
+   FORM HEADER
+   ========================================================= */
+
+.profile-form-header {
+
+    margin-bottom: 23px;
+}
+
+
+.profile-form-header p {
+
+    margin-bottom: 7px;
+
+    color: var(--accent);
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.17em;
+}
+
+
+.profile-form-header h2 {
+
+    color: var(--text);
+
+    font-size: 18px;
+
+    letter-spacing: -0.025em;
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.profile-form {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 17px;
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+
+.form-group label {
+
+    color: var(--muted-text);
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   INPUTS + SELECT
+   ========================================================= */
+
+.form-group input,
+.form-group select {
+
+    width: 100%;
+
+    height: 42px;
+
+    padding: 0 12px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.015);
+
+    color: var(--text);
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 10px;
+
+    transition: all 0.25s ease;
+}
+
+
+/* Placeholder */
+
+.form-group input::placeholder {
+
+    color: var(--muted-text);
+}
+
+
+/* Hover */
+
+.form-group input:hover,
+.form-group select:hover {
+
+    border-color: rgba(155, 199, 167, 0.18);
+
+    background: rgba(255, 255, 255, 0.025);
+}
+
+
+/* Focus */
+
+.form-group input:focus,
+.form-group select:focus {
+
+    border-color: rgba(155, 199, 167, 0.45);
+
+    background: rgba(155, 199, 167, 0.035);
+
+    box-shadow:
+        0 0 0 3px rgba(155, 199, 167, 0.06);
+}
+
+
+/* =========================================================
+   SELECT OPTIONS
+   ========================================================= */
+
+.form-group select option {
+
+    background: #171e1b;
+
+    color: #f3f6f3;
+}
+
+
+/* =========================================================
+   DISABLED USERNAME
+   ========================================================= */
+
+.form-group input:disabled {
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border-color: var(--border);
+
+    color: var(--muted-text);
+
+    cursor: not-allowed;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   PROFILE NOTE
+   ========================================================= */
+
+.profile-note {
+
+    grid-column: 1 / -1;
+
+    padding: 13px 15px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.015);
+
+    color: var(--muted-text);
+
+    font-size: 8px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   ACTION AREA
+   ========================================================= */
+
+.profile-actions {
+
+    grid-column: 1 / -1;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 3px;
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+   ========================================================= */
+
+.save-profile-btn {
+
+    padding: 11px 17px;
+
+    border: 1px solid rgba(155, 199, 167, 0.25);
+
+    border-radius: 10px;
+
+    background: var(--accent-light);
+
+    color: var(--accent);
+
+    cursor: pointer;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    transition: all 0.25s ease;
+}
+
+
+/* Hover */
+
+.save-profile-btn:hover {
+
+    background: rgba(155, 199, 167, 0.18);
+
+    border-color: rgba(155, 199, 167, 0.35);
+
+    transform: translateY(-2px);
+}
+
+
+/* Active */
+
+.save-profile-btn:active {
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   PROFILE MESSAGE
+   ========================================================= */
+
+.profile-message {
+
+    color: var(--accent);
+
+    font-size: 9px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+   ========================================================= */
+
+.profile-message.success {
+
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+   ========================================================= */
+
+.profile-message.error {
+
+    color: #e58b8b;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .profile-container {
+
+        grid-template-columns: 240px 1fr;
+
+        gap: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .profile-container {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .profile-sidebar-card {
+
+        padding: 25px;
+    }
+
+
+    .profile-form {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .profile-note {
+
+        grid-column: auto;
+    }
+
+
+    .profile-actions {
+
+        grid-column: auto;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .profile-form-card {
+
+        padding: 20px;
+    }
+
+
+    .profile-sidebar-card {
+
+        padding: 25px 20px;
+    }
+
+
+    .profile-avatar {
+
+        width: 80px;
+
+        height: 80px;
+
+        font-size: 28px;
+    }
+
+
+    .profile-sidebar-card h2 {
+
+        font-size: 18px;
+    }
+
+
+    .profile-form {
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    .profile-note {
+
+        grid-column: auto;
+    }
+
+
+    .profile-actions {
+
+        grid-column: auto;
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .save-profile-btn {
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+}

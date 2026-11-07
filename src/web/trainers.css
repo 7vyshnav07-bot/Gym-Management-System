@@ -1,0 +1,278 @@
+/* ================================
+   TRAINERS PAGE
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0b100e;
+    color: #f1f5f2;
+}
+
+/* ================================
+   TRAINER GRID
+================================ */
+
+#trainerGrid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+/* ================================
+   TRAINER CARD
+================================ */
+
+.trainer-card {
+    position: relative;
+
+    background: linear-gradient(
+        145deg,
+        #18221e,
+        #111815
+    );
+
+    border: 1px solid rgba(143, 211, 169, 0.18);
+    border-radius: 22px;
+
+    padding: 28px;
+
+    min-height: 420px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.trainer-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(143, 211, 169, 0.45);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ================================
+   CARD HEADER
+================================ */
+
+.trainer-card-header {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 24px;
+}
+
+/* ================================
+   AVATAR
+================================ */
+
+.trainer-avatar {
+    width: 68px;
+    height: 68px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(143, 211, 169, 0.08);
+
+    border: 1px solid rgba(143, 211, 169, 0.35);
+
+    color: #9bd7b1;
+
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* ================================
+   TRAINER NAME
+================================ */
+
+.trainer-card-header h3 {
+    margin: 0 0 6px;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    color: #f5f7f6;
+}
+
+.trainer-card-header p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #9bd7b1;
+
+    font-weight: 500;
+}
+
+/* ================================
+   TRAINER DETAILS
+================================ */
+
+.trainer-details {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    padding: 20px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trainer-details div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.trainer-details strong {
+    font-size: 13px;
+
+    color: #9da8a1;
+
+    font-weight: 500;
+}
+
+.trainer-details span {
+    font-size: 14px;
+
+    color: #e6ece8;
+
+    text-align: right;
+}
+
+/* ================================
+   DESCRIPTION
+================================ */
+
+.trainer-description {
+    margin: 20px 0;
+
+    min-height: 55px;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    color: #aeb8b2;
+}
+
+/* ================================
+   REQUEST BUTTON
+================================ */
+
+.choose-plan-btn {
+    width: 100%;
+
+    margin-top: auto;
+
+    padding: 13px 18px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #8fd3a9;
+
+    color: #0b100e;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.choose-plan-btn:hover {
+    background: #a6e2ba;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(143, 211, 169, 0.18);
+}
+
+.choose-plan-btn:active {
+    transform: translateY(0);
+}
+
+/* ================================
+   PAGE TITLE
+================================ */
+
+.trainers-title {
+    text-align: center;
+
+    margin: 40px 0 10px;
+
+    font-size: 32px;
+
+    color: #f4f7f5;
+}
+
+.trainers-subtitle {
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    color: #9da8a1;
+
+    font-size: 14px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1000px) {
+
+    #trainerGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+
+    #trainerGrid {
+        grid-template-columns: 1fr;
+
+        padding: 0 16px;
+    }
+
+    .trainer-card {
+        min-height: auto;
+    }
+}

@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BMI & Diet Planner - GymForge</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+    <style>
+
+        /* ==========================================
+           BMI PAGE
+        ========================================== */
+
+        .bmi-page {
+
+            max-width: 1100px;
+            margin: 0 auto;
+
+        }
+
+
+        /* ==========================================
+           BACK BUTTON
+        ========================================== */
+
+        .back-button {
+
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-bottom: 25px;
+            padding: 9px 14px;
+
+            border: 1px solid var(--border);
+            border-radius: 9px;
+
+            background: transparent;
+            color: var(--secondary-text);
+
+            text-decoration: none;
+            font-size: 10px;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .back-button:hover {
+
+            background: var(--accent-light);
+            color: var(--accent);
+
+            border-color:
+                rgba(155, 199, 167, 0.25);
+
+        }
+
+
+        /* ==========================================
+           HEADER
+        ========================================== */
+
+        .bmi-header {
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .bmi-header p {
+
+            color: var(--accent);
+
+            font-size: 8px;
+            font-weight: 700;
+
+            letter-spacing: 0.18em;
+
+        }
+
+
+        .bmi-header h1 {
+
+            margin-top: 8px;
+
+            font-size: 32px;
+
+            letter-spacing: -0.04em;
+
+        }
+
+
+        .bmi-header span {
+
+            display: block;
+
+            margin-top: 8px;
+
+            color: var(--secondary-text);
+
+            font-size: 11px;
+
+        }
+
+
+        /* ==========================================
+           MAIN LAYOUT
+        ========================================== */
+
+        .bmi-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                0.85fr 1.15fr;
+
+            gap: 20px;
+
+        }
+
+
+        /* ==========================================
+           INPUT CARD
+        ========================================== */
+
+        .bmi-card {
+
+            padding: 28px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            background: var(--card);
+
+        }
+
+
+        .bmi-card-title {
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .bmi-card-title p {
+
+            color: var(--accent);
+
+            font-size: 7px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.16em;
+
+        }
+
+
+        .bmi-card-title h2 {
+
+            margin-top: 7px;
+
+            font-size: 19px;
+
+        }
+
+
+        /* ==========================================
+           INPUT GROUP
+        ========================================== */
+
+        .input-group {
+
+            margin-bottom: 16px;
+
+        }
+
+
+        .input-group label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: var(--secondary-text);
+
+            font-size: 9px;
+
+            font-weight: 600;
+
+        }
+
+
+        .input-group input,
+        .input-group select {
+
+            width: 100%;
+
+            padding: 12px 13px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 9px;
+
+            outline: none;
+
+            background: #111714;
+
+            color: var(--text);
+
+            font-size: 11px;
+
+        }
+
+
+        .input-group input:focus,
+        .input-group select:focus {
+
+            border-color:
+                rgba(155, 199, 167, 0.45);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(155, 199, 167, 0.06);
+
+        }
+
+
+        /* ==========================================
+           INPUT ROW
+        ========================================== */
+
+        .input-row {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 12px;
+
+        }
+
+
+        /* ==========================================
+           CALCULATE BUTTON
+        ========================================== */
+
+        .calculate-button {
+
+            width: 100%;
+
+            margin-top: 8px;
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: var(--accent);
+
+            color: #101512;
+
+            cursor: pointer;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.04em;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .calculate-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            background: #b0d5b9;
+
+        }
+
+
+        /* ==========================================
+           RESULT CARD
+        ========================================== */
+
+        .result-card {
+
+            min-height: 100%;
+
+        }
+
+
+        /* ==========================================
+           BMI RESULT
+        ========================================== */
+
+        .bmi-result {
+
+            padding: 20px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 13px;
+
+            background:
+                rgba(255, 255, 255, 0.015);
+
+            text-align: center;
+
+        }
+
+
+        .bmi-result-label {
+
+            color: var(--muted-text);
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.14em;
+
+        }
+
+
+        .bmi-number {
+
+            margin-top: 8px;
+
+            color: var(--accent);
+
+            font-size: 46px;
+
+            font-weight: 800;
+
+            letter-spacing: -0.05em;
+
+        }
+
+
+        .bmi-category {
+
+            display: inline-block;
+
+            margin-top: 4px;
+
+            padding: 6px 11px;
+
+            border-radius: 20px;
+
+            background: var(--accent-light);
+
+            color: var(--accent);
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* ==========================================
+           DAILY ENERGY CARD
+        ========================================== */
+
+        .calorie-card {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-top: 15px;
+
+            padding: 17px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 13px;
+
+            background:
+                rgba(255, 255, 255, 0.015);
+
+        }
+
+
+        .calorie-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border-radius: 11px;
+
+            background: var(--accent-light);
+
+            color: var(--accent);
+
+            font-size: 18px;
+
+        }
+
+
+        .calorie-content p {
+
+            color: var(--muted-text);
+
+            font-size: 7px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.14em;
+
+        }
+
+
+        .calorie-content h3 {
+
+            margin-top: 5px;
+
+            color: var(--accent);
+
+            font-size: 20px;
+
+        }
+
+
+        .calorie-content h3 small {
+
+            color: var(--secondary-text);
+
+            font-size: 8px;
+
+            font-weight: 500;
+
+        }
+
+
+        .calorie-content > span {
+
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--muted-text);
+
+            font-size: 7px;
+
+            line-height: 1.4;
+
+        }
+
+
+        /* ==========================================
+           DIET PLAN
+        ========================================== */
+
+        .diet-plan {
+
+            margin-top: 20px;
+
+        }
+
+
+        .diet-plan h3 {
+
+            font-size: 16px;
+
+        }
+
+
+        .diet-plan-subtitle {
+
+            margin-top: 5px;
+
+            color: var(--muted-text);
+
+            font-size: 9px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* ==========================================
+           MEAL LIST
+        ========================================== */
+
+        .meal-list {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 10px;
+
+            margin-top: 15px;
+
+        }
+
+
+        .meal {
+
+            padding: 14px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 11px;
+
+            background:
+                rgba(255, 255, 255, 0.015);
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .meal:hover {
+
+            border-color:
+                rgba(155, 199, 167, 0.25);
+
+            transform:
+                translateY(-1px);
+
+        }
+
+
+        .meal-name {
+
+            color: var(--accent);
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.08em;
+
+        }
+
+
+        .meal-food {
+
+            margin-top: 7px;
+
+            color: var(--secondary-text);
+
+            font-size: 9px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* ==========================================
+           DIET NOTE
+        ========================================== */
+
+        .diet-note {
+
+            margin-top: 15px;
+
+            padding: 12px;
+
+            border-left:
+                2px solid var(--accent);
+
+            background:
+                var(--accent-light);
+
+            color: var(--secondary-text);
+
+            font-size: 8px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* ==========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 800px) {
+
+            .bmi-layout {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .input-row,
+            .meal-list {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .bmi-header h1 {
+
+                font-size: 27px;
+
+            }
+
+
+            .bmi-card {
+
+                padding: 20px;
+
+            }
+
+
+            .calorie-card {
+
+                align-items: flex-start;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main class="main-content">
+
+        <div class="bmi-page">
+
+
+            <!-- ==================================
+                 BACK TO DASHBOARD
+            =================================== -->
+
+            <a
+                href="dashboard.html"
+                class="back-button"
+            >
+
+                ← Back to Dashboard
+
+            </a>
+
+
+            <!-- ==================================
+                 PAGE HEADER
+            =================================== -->
+
+            <div class="bmi-header">
+
+                <p>
+                    FITNESS & NUTRITION
+                </p>
+
+                <h1>
+                    BMI & Balanced Diet Planner
+                </h1>
+
+                <span>
+                    Calculate your BMI and receive a
+                    general balanced diet recommendation.
+                </span>
+
+            </div>
+
+
+            <!-- ==================================
+                 PAGE LAYOUT
+            =================================== -->
+
+            <div class="bmi-layout">
+
+
+                <!-- ==================================
+                     INPUT SECTION
+                =================================== -->
+
+                <section class="bmi-card">
+
+
+                    <div class="bmi-card-title">
+
+                        <p>
+                            PERSONAL DETAILS
+                        </p>
+
+                        <h2>
+                            Enter your information
+                        </h2>
+
+                    </div>
+
+
+                    <!-- WEIGHT + HEIGHT -->
+
+                    <div class="input-row">
+
+
+                        <div class="input-group">
+
+                            <label for="weight">
+                                Weight (kg)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="weight"
+                                placeholder="e.g. 70"
+                                min="1"
+                                step="0.1"
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="height">
+                                Height (cm)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="height"
+                                placeholder="e.g. 175"
+                                min="50"
+                                step="0.1"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AGE -->
+
+                    <div class="input-group">
+
+                        <label for="age">
+                            Age
+                        </label>
+
+                        <input
+                            type="number"
+                            id="age"
+                            placeholder="e.g. 21"
+                            min="1"
+                            max="120"
+                        >
+
+                    </div>
+
+
+                    <!-- GENDER -->
+
+                    <div class="input-group">
+
+                        <label for="gender">
+                            Gender
+                        </label>
+
+                        <select id="gender">
+
+                            <option value="">
+                                Select gender
+                            </option>
+
+                            <option value="male">
+                                Male
+                            </option>
+
+                            <option value="female">
+                                Female
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- ACTIVITY -->
+
+                    <div class="input-group">
+
+                        <label for="activity">
+                            Activity Level
+                        </label>
+
+                        <select id="activity">
+
+                            <option value="">
+                                Select activity level
+                            </option>
+
+                            <option value="low">
+                                Low Activity
+                            </option>
+
+                            <option value="moderate">
+                                Moderately Active
+                            </option>
+
+                            <option value="high">
+                                Highly Active
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- CALCULATE -->
+
+                    <button
+                        type="button"
+                        class="calculate-button"
+                        id="calculateBMI"
+                    >
+
+                        CALCULATE BMI & CREATE PLAN
+
+                    </button>
+
+
+                </section>
+
+
+                <!-- ==================================
+                     RESULT SECTION
+                =================================== -->
+
+                <section class="bmi-card result-card">
+
+
+                    <div class="bmi-card-title">
+
+                        <p>
+                            YOUR RESULT
+                        </p>
+
+                        <h2>
+                            Health Overview
+                        </h2>
+
+                    </div>
+
+
+                    <!-- BMI RESULT -->
+
+                    <div class="bmi-result">
+
+                        <p class="bmi-result-label">
+                            YOUR BMI
+                        </p>
+
+                        <div
+                            class="bmi-number"
+                            id="bmiValue"
+                        >
+                            —
+                        </div>
+
+                        <span
+                            class="bmi-category"
+                            id="bmiCategory"
+                        >
+                            Enter your details
+                        </span>
+
+                    </div>
+
+
+                    <!-- ==================================
+                         DAILY ENERGY
+                    =================================== -->
+
+                    <div class="calorie-card">
+
+
+                        <div class="calorie-icon">
+                            ⚡
+                        </div>
+
+
+                        <div class="calorie-content">
+
+                            <p>
+                                ESTIMATED DAILY ENERGY
+                            </p>
+
+                            <h3>
+
+                                <span id="calorieValue">
+                                    —
+                                </span>
+
+                                <small>
+                                    kcal/day
+                                </small>
+
+                            </h3>
+
+                            <span>
+                                Based on your age, gender,
+                                body measurements and
+                                activity level.
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- ==================================
+                         DIET PLAN
+                    =================================== -->
+
+                    <div class="diet-plan">
+
+
+                        <h3>
+                            Balanced Diet Recommendation
+                        </h3>
+
+
+                        <p
+                            class="diet-plan-subtitle"
+                            id="dietSubtitle"
+                        >
+
+                            Your recommended meals will
+                            appear here.
+
+                        </p>
+
+
+                        <!-- MEALS -->
+
+                        <div class="meal-list">
+
+
+                            <!-- BREAKFAST -->
+
+                            <div class="meal">
+
+                                <div class="meal-name">
+                                    BREAKFAST
+                                </div>
+
+                                <div
+                                    class="meal-food"
+                                    id="breakfast"
+                                >
+                                    —
+                                </div>
+
+                            </div>
+
+
+                            <!-- MID-MORNING -->
+
+                            <div class="meal">
+
+                                <div class="meal-name">
+                                    MID-MORNING
+                                </div>
+
+                                <div
+                                    class="meal-food"
+                                    id="midMorning"
+                                >
+                                    —
+                                </div>
+
+                            </div>
+
+
+                            <!-- LUNCH -->
+
+                            <div class="meal">
+
+                                <div class="meal-name">
+                                    LUNCH
+                                </div>
+
+                                <div
+                                    class="meal-food"
+                                    id="lunch"
+                                >
+                                    —
+                                </div>
+
+                            </div>
+
+
+                            <!-- EVENING SNACK -->
+
+                            <div class="meal">
+
+                                <div class="meal-name">
+                                    EVENING SNACK
+                                </div>
+
+                                <div
+                                    class="meal-food"
+                                    id="eveningSnack"
+                                >
+                                    —
+                                </div>
+
+                            </div>
+
+
+                            <!-- DINNER -->
+
+                            <div class="meal">
+
+                                <div class="meal-name">
+                                    DINNER
+                                </div>
+
+                                <div
+                                    class="meal-food"
+                                    id="dinner"
+                                >
+                                    —
+                                </div>
+
+                            </div>
+
+
+                            <!-- HYDRATION -->
+
+                            <div class="meal">
+
+                                <div class="meal-name">
+                                    HYDRATION
+                                </div>
+
+                                <div
+                                    class="meal-food"
+                                    id="hydration"
+                                >
+                                    —
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- DISCLAIMER -->
+
+                        <div class="diet-note">
+
+                            This planner provides general
+                            fitness and nutrition guidance
+                            based on BMI. It is not a
+                            substitute for advice from a
+                            qualified healthcare or nutrition
+                            professional.
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==========================================
+         BMI JAVASCRIPT
+    ========================================== -->
+
+    <script src="bmi.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,541 @@
+/* ==========================================
+   GYMFORGE
+   WORKOUT PLANNER
+========================================== */
+
+
+/* ==========================================
+   WORKOUT PAGE
+========================================== */
+
+.workout-page {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+}
+
+
+/* ==========================================
+   BACK BUTTON
+========================================== */
+
+.back-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 25px;
+
+    padding: 9px 14px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: var(--secondary-text);
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    transition: 0.25s ease;
+
+}
+
+
+.back-button:hover {
+
+    background: var(--accent-light);
+
+    color: var(--accent);
+
+    border-color:
+        rgba(155, 199, 167, 0.25);
+
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.workout-header {
+
+    margin-bottom: 25px;
+
+}
+
+
+.workout-header p {
+
+    color: var(--accent);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+}
+
+
+.workout-header h1 {
+
+    margin-top: 8px;
+
+    font-size: 32px;
+
+    letter-spacing: -0.04em;
+
+}
+
+
+.workout-header span {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: var(--secondary-text);
+
+    font-size: 11px;
+
+}
+
+
+/* ==========================================
+   MAIN LAYOUT
+========================================== */
+
+.workout-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        0.85fr 1.15fr;
+
+    gap: 20px;
+
+}
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+.workout-card {
+
+    padding: 28px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    background: var(--card);
+
+}
+
+
+.result-card {
+
+    min-height: 100%;
+
+}
+
+
+/* ==========================================
+   CARD TITLE
+========================================== */
+
+.workout-card-title {
+
+    margin-bottom: 22px;
+
+}
+
+
+.workout-card-title p {
+
+    color: var(--accent);
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+}
+
+
+.workout-card-title h2 {
+
+    margin-top: 7px;
+
+    font-size: 19px;
+
+}
+
+
+/* ==========================================
+   INPUT GROUP
+========================================== */
+
+.input-group {
+
+    margin-bottom: 18px;
+
+}
+
+
+.input-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--secondary-text);
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+}
+
+
+.input-group select {
+
+    width: 100%;
+
+    padding: 12px 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #111714;
+
+    color: var(--text);
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+}
+
+
+.input-group select:focus {
+
+    border-color:
+        rgba(155, 199, 167, 0.45);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(155, 199, 167, 0.06);
+
+}
+
+
+/* ==========================================
+   GENERATE BUTTON
+========================================== */
+
+.generate-button {
+
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--accent);
+
+    color: #101512;
+
+    cursor: pointer;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.04em;
+
+    transition: 0.25s ease;
+
+}
+
+
+.generate-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    background: #b0d5b9;
+
+}
+
+
+/* ==========================================
+   MESSAGE
+========================================== */
+
+.workout-message {
+
+    min-height: 18px;
+
+    margin-top: 12px;
+
+    text-align: center;
+
+    color: var(--secondary-text);
+
+    font-size: 8px;
+
+}
+
+
+/* ==========================================
+   PLAN SUMMARY
+========================================== */
+
+.plan-summary {
+
+    padding: 14px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 11px;
+
+    background:
+        rgba(255, 255, 255, 0.015);
+
+    color: var(--secondary-text);
+
+    font-size: 9px;
+
+    line-height: 1.6;
+
+}
+
+
+/* ==========================================
+   WORKOUT LIST
+========================================== */
+
+.workout-list {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+}
+
+
+/* ==========================================
+   WORKOUT DAY CARD
+========================================== */
+
+.workout-day {
+
+    padding: 15px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.015);
+
+    transition: 0.25s ease;
+
+}
+
+
+.workout-day:hover {
+
+    border-color:
+        rgba(155, 199, 167, 0.25);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* ==========================================
+   DAY TITLE
+========================================== */
+
+.workout-day-name {
+
+    color: var(--accent);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+
+}
+
+
+.workout-focus {
+
+    margin-top: 4px;
+
+    color: var(--muted-text);
+
+    font-size: 8px;
+
+}
+
+
+/* ==========================================
+   EXERCISE LIST
+========================================== */
+
+.exercise-list {
+
+    margin-top: 10px;
+
+    padding-left: 16px;
+
+}
+
+
+.exercise-list li {
+
+    margin-bottom: 6px;
+
+    color: var(--secondary-text);
+
+    font-size: 8px;
+
+    line-height: 1.5;
+
+}
+
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.empty-workout {
+
+    grid-column: 1 / -1;
+
+    padding: 35px 20px;
+
+    border: 1px dashed var(--border);
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    color: var(--muted-text);
+
+    font-size: 9px;
+
+    line-height: 1.6;
+
+}
+
+
+/* ==========================================
+   REST DAY
+========================================== */
+
+.rest-day {
+
+    opacity: 0.8;
+
+}
+
+
+.rest-day .workout-day-name {
+
+    color: var(--secondary-text);
+
+}
+
+
+/* ==========================================
+   WORKOUT NOTE
+========================================== */
+
+.workout-note {
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border-left:
+        2px solid var(--accent);
+
+    background:
+        var(--accent-light);
+
+    color: var(--secondary-text);
+
+    font-size: 8px;
+
+    line-height: 1.6;
+
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 800px) {
+
+    .workout-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .workout-list {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .workout-header h1 {
+
+        font-size: 27px;
+
+    }
+
+
+    .workout-card {
+
+        padding: 20px;
+
+    }
+
+}

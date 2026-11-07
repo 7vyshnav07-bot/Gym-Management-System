@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Member Profile - GymForge</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="profile.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                G
+            </div>
+
+            <div class="logo-text">
+                <h2>GYMFORGE</h2>
+                <p>MANAGEMENT SYSTEM</p>
+            </div>
+
+        </div>
+
+        <nav class="navigation">
+
+            <p class="menu-title">
+                MAIN MENU
+            </p>
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="profile.html" class="nav-item active">
+                <span class="nav-icon">◉</span>
+                <span>Member Profile</span>
+            </a>
+
+            <a href="membership.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>Membership Plans</span>
+            </a>
+
+            <a href="trainers.html" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span>Trainers</span>
+            </a>
+
+            <a href="workout.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Workout Plans</span>
+            </a>
+
+            <a href="attendance.html" class="nav-item">
+                <span class="nav-icon">✓</span>
+                <span>Attendance</span>
+            </a>
+
+            <a href="payment.html" class="nav-item">
+                <span class="nav-icon">₹</span>
+                <span>Payment</span>
+            </a>
+
+            <a href="bmi.html" class="nav-item">
+                <span class="nav-icon">♧</span>
+                <span>BMI & Diet Planner</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="page-heading">
+
+                <p>MEMBER PORTAL</p>
+
+                <h1>Member Profile</h1>
+
+            </div>
+
+        </header>
+
+
+        <div class="profile-container">
+
+
+            <!-- PROFILE SUMMARY -->
+
+            <section class="profile-sidebar-card">
+
+                <div
+                    class="profile-avatar"
+                    id="profileAvatar"
+                >
+                    U
+                </div>
+
+                <h2 id="profileDisplayName">
+                    Member
+                </h2>
+
+                <p id="profileDisplayUsername">
+                    @username
+                </p>
+
+                <span class="profile-tag">
+                    GYMFORGE MEMBER
+                </span>
+
+            </section>
+
+
+            <!-- EDIT PROFILE -->
+
+            <section class="profile-form-card">
+
+                <div class="profile-form-header">
+
+                    <p>
+                        ACCOUNT SETTINGS
+                    </p>
+
+                    <h2>
+                        Edit Profile
+                    </h2>
+
+                </div>
+
+
+                <form
+                    id="profileForm"
+                    class="profile-form"
+                >
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            FULL NAME
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="username">
+                            USERNAME
+                        </label>
+
+                        <input
+                            type="text"
+                            id="username"
+                            disabled
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            EMAIL
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            PHONE
+                        </label>
+
+                        <input
+                            type="text"
+                            id="phone"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="dateOfBirth">
+                            DATE OF BIRTH
+                        </label>
+
+                        <input
+                            type="date"
+                            id="dateOfBirth"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="country">
+                            COUNTRY
+                        </label>
+
+                        <input
+                            type="text"
+                            id="country"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="gender">
+                            GENDER
+                        </label>
+
+                        <select id="gender">
+
+                            <option value="">
+                                Select Gender
+                            </option>
+
+                            <option value="Male">
+                                Male
+                            </option>
+
+                            <option value="Female">
+                                Female
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            NEW PASSWORD
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Leave blank to keep current password"
+                        >
+
+                    </div>
+
+
+                    <div class="profile-note">
+
+                        Username cannot be changed because it
+                        identifies your GymForge account.
+
+                    </div>
+
+
+                    <div class="profile-actions">
+
+                        <button
+                            type="submit"
+                            class="save-profile-btn"
+                        >
+                            Save Changes →
+                        </button>
+
+                        <span
+                            id="profileMessage"
+                            class="profile-message"
+                        ></span>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="profile.js"></script>
+
+</body>
+
+</html>

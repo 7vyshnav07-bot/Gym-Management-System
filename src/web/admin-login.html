@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymForge Admin Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .form-switch a { color: var(--accent); font-weight: 650; text-decoration: none; }
+        .form-switch a:hover { text-decoration: underline; }
+        .admin-note { margin-top: 14px; color: var(--text-muted); font-size: 10px; line-height: 1.55; text-align: center; }
+    </style>
+</head>
+<body>
+<main class="app">
+    <section class="brand-section">
+        <div class="brand-top">
+            <div class="brand-mark"><span>🏋🏻‍♂️</span></div>
+            <div><h2>GYMFORGE</h2><p>MANAGEMENT SYSTEM</p></div>
+        </div>
+        <div class="brand-content">
+            <p class="eyebrow">ADMINISTRATOR ACCESS</p>
+            <h1>LEAD YOUR <span>GYM FORWARD.</span></h1>
+            <p class="brand-description">Manage memberships, staff, training plans and daily gym operations from one secure workspace.</p>
+            <div class="features">
+                <div class="feature"><div class="feature-icon">01</div><div><h3>Live Overview</h3><p>See the latest activity across your gym.</p></div></div>
+                <div class="feature"><div class="feature-icon">02</div><div><h3>Member Management</h3><p>Keep profiles and memberships up to date.</p></div></div>
+                <div class="feature"><div class="feature-icon">03</div><div><h3>Secure Admin Tools</h3><p>Staff controls stay behind admin sign-in.</p></div></div>
+            </div>
+        </div>
+        <div class="brand-footer"><span>GYM MANAGEMENT SYSTEM</span></div>
+    </section>
+    <section class="form-section">
+        <div class="form-wrapper">
+            <div class="form-container active">
+                <div class="form-heading">
+                    <span class="form-label">STAFF PORTAL</span>
+                    <h2>Admin sign in</h2>
+                    <p>Use your administrator account to open the GymForge control panel.</p>
+                </div>
+                <form id="loginForm" novalidate>
+                    <div class="input-group">
+                        <label for="adminUsername">Admin username</label>
+                        <input id="adminUsername" name="username" autocomplete="username" placeholder="Enter your admin username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="adminPassword">Password</label>
+                        <input id="adminPassword" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+                    </div>
+                    <div id="message" class="form-message" role="alert"></div>
+                    <button type="submit" class="primary-button"><span>Sign In to Admin</span><span class="button-arrow" aria-hidden="true">→</span></button>
+                </form>
+                <div class="form-switch">
+                    <span>Member access?</span>
+                    <a href="index.html?view=login">Member login</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="index.html">Create account</a>
+                </div>
+                <p class="admin-note">Authorized GymForge administrators only.</p>
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+document.getElementById('loginForm').addEventListener('submit', async event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const message = document.getElementById('message');
+    const submit = form.querySelector('button[type="submit"]');
+    message.textContent = 'Signing in…';
+    message.className = 'form-message';
+    submit.disabled = true;
+    try {
+        const response = await fetch('./admin/login', {
+            method: 'POST',
+            credentials: 'same-origin',
+            body: new URLSearchParams(new FormData(form))
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.message || 'Sign-in failed.');
+        window.location.href = 'admin.html';
+    } catch (error) {
+        message.textContent = error.message || 'Unable to sign in. Please try again.';
+        message.className = 'form-message error';
+    } finally {
+        submit.disabled = false;
+    }
+});
+</script>
+</body>
+</html>

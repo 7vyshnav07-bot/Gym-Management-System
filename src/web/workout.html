@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Workout Planner - GymForge</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+    <link rel="stylesheet" href="workout.css">
+
+</head>
+
+
+<body>
+
+    <main class="main-content">
+
+        <div class="workout-page">
+
+
+            <!-- ==================================
+                 BACK BUTTON
+            =================================== -->
+
+            <a
+                href="dashboard.html"
+                class="back-button"
+            >
+
+                ← Back to Dashboard
+
+            </a>
+
+
+            <!-- ==================================
+                 HEADER
+            =================================== -->
+
+            <div class="workout-header">
+
+                <p>
+                    FITNESS & TRAINING
+                </p>
+
+                <h1>
+                    Personalized Workout Planner
+                </h1>
+
+                <span>
+                    Create a workout plan based on your
+                    fitness goal, experience and schedule.
+                </span>
+
+            </div>
+
+
+            <!-- ==================================
+                 MAIN LAYOUT
+            =================================== -->
+
+            <div class="workout-layout">
+
+
+                <!-- ==================================
+                     INPUT CARD
+                =================================== -->
+
+                <section class="workout-card">
+
+                    <div class="workout-card-title">
+
+                        <p>
+                            WORKOUT PREFERENCES
+                        </p>
+
+                        <h2>
+                            Tell us about your goal
+                        </h2>
+
+                    </div>
+
+
+                    <!-- FITNESS GOAL -->
+
+                    <div class="input-group">
+
+                        <label for="fitnessGoal">
+                            Fitness Goal
+                        </label>
+
+                        <select id="fitnessGoal">
+
+                            <option value="">
+                                Select your goal
+                            </option>
+
+                            <option value="weight-loss">
+                                Weight Loss
+                            </option>
+
+                            <option value="muscle-gain">
+                                Muscle Gain
+                            </option>
+
+                            <option value="general-fitness">
+                                General Fitness
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- EXPERIENCE -->
+
+                    <div class="input-group">
+
+                        <label for="experience">
+                            Experience Level
+                        </label>
+
+                        <select id="experience">
+
+                            <option value="">
+                                Select experience level
+                            </option>
+
+                            <option value="beginner">
+                                Beginner
+                            </option>
+
+                            <option value="intermediate">
+                                Intermediate
+                            </option>
+
+                            <option value="advanced">
+                                Advanced
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- DAYS PER WEEK -->
+
+                    <div class="input-group">
+
+                        <label for="daysPerWeek">
+                            Training Days Per Week
+                        </label>
+
+                        <select id="daysPerWeek">
+
+                            <option value="">
+                                Select number of days
+                            </option>
+
+                            <option value="3">
+                                3 Days
+                            </option>
+
+                            <option value="4">
+                                4 Days
+                            </option>
+
+                            <option value="5">
+                                5 Days
+                            </option>
+
+                            <option value="6">
+                                6 Days
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- GENERATE BUTTON -->
+
+                    <button
+                        type="button"
+                        class="generate-button"
+                        id="generateWorkout"
+                    >
+
+                        GENERATE WORKOUT PLAN
+
+                    </button>
+
+
+                    <!-- INPUT MESSAGE -->
+
+                    <p
+                        class="workout-message"
+                        id="workoutMessage"
+                    ></p>
+
+
+                </section>
+
+
+                <!-- ==================================
+                     RESULT CARD
+                =================================== -->
+
+                <section class="workout-card result-card">
+
+
+                    <div class="workout-card-title">
+
+                        <p>
+                            YOUR PLAN
+                        </p>
+
+                        <h2>
+                            Weekly Workout Schedule
+                        </h2>
+
+                    </div>
+
+
+                    <!-- PLAN SUMMARY -->
+
+                    <div
+                        class="plan-summary"
+                        id="planSummary"
+                    >
+
+                        Select your preferences and
+                        generate a workout plan.
+
+                    </div>
+
+
+                    <!-- WORKOUT DAYS -->
+
+                    <div
+                        class="workout-list"
+                        id="workoutList"
+                    >
+
+                        <div class="empty-workout">
+
+                            Your personalized workout
+                            schedule will appear here.
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- WORKOUT NOTE -->
+
+                    <div class="workout-note">
+
+                        Always begin with a warm-up and
+                        finish with appropriate stretching.
+                        Adjust exercises and intensity
+                        according to your fitness level.
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="workout.js"></script>
+
+</body>
+
+</html>
